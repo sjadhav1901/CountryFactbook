@@ -31,11 +31,13 @@ function ValidateSingInUser() {
     if ($("#chk-rememberme").is(':checked')) {
         rememberme = 1;
     }
+    $("#btn-sign-in").attr("disabled", "disabled");
     var result = AjaxCall("/api/authenticate/" + rememberme, JSON.stringify(data), "POST");
     if (result.id > 0) {
         window.location.href = "/dashbord";
     }
     else {
+        $("#btn-sign-in").removeAttr("disabled");
         $("#alert-error").html("Invalid email address or password");
         $("#alert-error").show();
         return false;
