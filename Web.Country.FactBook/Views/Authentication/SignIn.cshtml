@@ -12,13 +12,13 @@
             <div class="form-signin-body">
                 <p>Please Sign In</p>
                 <div class="form-label-group">
-                    <input type="text" id="inputEmail" class="form-control" placeholder="Username or email address" required autofocus>
-                    <label for="inputEmail">Username or email address</label>
+                    <input type="text" id="input-email" class="form-control" placeholder="Email address" required autofocus>
+                    <label for="input-email">Email address</label>
                 </div>
 
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                    <label for="inputPassword">Password</label>
+                    <input type="password" id="input-password" class="form-control" placeholder="Password" required>
+                    <label for="input-password">Password</label>
                 </div>
 
                 <div class="checkbox mb-3">
@@ -27,7 +27,10 @@
                     </label>
                     <a class="flaot-right" href="/authentication/resetpassword">Forgot password?</a>
                 </div>
-                <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+                <div class="alert alert-success" role="alert" id="alert-error" style="display:none;">
+                    
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit" onclick="return ValidateSingInUser();">Sign in</button>
             </div>
             <p class="create-account-body mt-3">
                 New to Country FactBook?

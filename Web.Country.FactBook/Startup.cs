@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Db.Core.Utilites;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -30,6 +32,7 @@ namespace Web.Country.FactBook
         {
             services.AddTransient<IDataSettings, DataSettings>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IPasswordHasher<string>, PasswordHasher<string>>();
             services.AddMvc();
         }
 
@@ -58,7 +61,12 @@ namespace Web.Country.FactBook
                 FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "Scripts")),
                 RequestPath = "/scripts"
-            }); 
+            });
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<Web.Core.Profiles.AutoMapperProfile>();
+            });
         }
     }
 }

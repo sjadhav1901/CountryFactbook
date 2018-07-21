@@ -1,9 +1,9 @@
-﻿function AjaxCall(url, dataString, method) {
+﻿function AjaxCall(url, data, method) {
     var ajaxResult = "";
     $.ajax({
         type: method,
         url: url,
-        data: dataString,
+        data: data,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         async: false,
