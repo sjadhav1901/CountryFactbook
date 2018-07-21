@@ -71,3 +71,6 @@ BundleArtifacts/
 # SQL Server files
 *.mdf
 *.ldf
+/Web.Country.FactBook/appsettings.Development.json
+/Web.Country.FactBook/appsettings.Production.json
+/Web.Country.FactBook/appsettings.Test.json
