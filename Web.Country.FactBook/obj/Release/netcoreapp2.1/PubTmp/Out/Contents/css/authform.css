@@ -1,0 +1,45 @@
+body{
+    font-size: 14px;
+  }
+.form-signin-body {
+    padding: 20px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #d8dee2;
+    border-top: 0;
+    border-radius: 0 0 3px 3px;
+}
+.form-signin-body {
+    border-top: 1px solid #d8dee2;
+    border-radius: 5px;
+}
+.form-label-group > input, .form-label-group > label {
+    padding: 6px;
+}
+.create-account-body {
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid #d8dee2;
+    border-radius: 5px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+.btn-group-lg>.btn, .btn-lg {
+    padding: 3px;
+}
+.flaot-right {
+    float: right;
+}
+.btn-success {
+    font-size: 16px !important;
+    padding: 6px !important;
+}
