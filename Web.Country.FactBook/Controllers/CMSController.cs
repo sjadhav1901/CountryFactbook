@@ -6,6 +6,7 @@ using Contracts.DataModels;
 using Contracts.Models;
 using Microsoft.AspNetCore.Mvc;
 using Web.Country.FactBook.ApiIntegrations;
+using Web.Country.FactBook.Helpers;
 using Web.Country.FactBook.Repositories;
 using Web.Country.FactBook.ViewModels;
 
@@ -19,7 +20,8 @@ namespace Web.Country.FactBook.Controllers
         private ILanguageRepository _languageRepository;
         private ICountryLanguageMappingRepository _countryLanguageMappingRepository;
         private ICountryCurrencyMappingRepository _countryCurrencyMappingRepository;
-        public CMSController(IApiCountryAll apiCountryAll, ICountryRepository countryRepository, ICurrencyRepository currencyRepository, ILanguageRepository languageRepository, ICountryLanguageMappingRepository countryLanguageMappingRepository, ICountryCurrencyMappingRepository countryCurrencyMappingRepository)
+        private IActivityHelper _activityHelper;
+        public CMSController(IApiCountryAll apiCountryAll, ICountryRepository countryRepository, ICurrencyRepository currencyRepository, ILanguageRepository languageRepository, ICountryLanguageMappingRepository countryLanguageMappingRepository, ICountryCurrencyMappingRepository countryCurrencyMappingRepository, IActivityHelper activityHelper)
         {
             _apiCountryAll = apiCountryAll;
             _countryRepository = countryRepository;
@@ -27,6 +29,7 @@ namespace Web.Country.FactBook.Controllers
             _languageRepository = languageRepository;
             _countryLanguageMappingRepository = countryLanguageMappingRepository;
             _countryCurrencyMappingRepository = countryCurrencyMappingRepository;
+            _activityHelper = activityHelper;
         }
 
         public IActionResult SyncCountries()
@@ -137,6 +140,7 @@ namespace Web.Country.FactBook.Controllers
                 {
                 }
             }
+            _activityHelper.SaveActivity("Country Data Synchronization", "You have performed country data sync opertion on " + DateTime.UtcNow.ToString() + " (GMT)", model.AltId);
             return true;
         }
 

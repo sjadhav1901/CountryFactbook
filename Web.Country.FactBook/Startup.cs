@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Web.Country.FactBook.ApiIntegrations;
+using Web.Country.FactBook.Helpers;
 using Web.Country.FactBook.Repositories;
 
 namespace Web.Country.FactBook
@@ -37,11 +38,13 @@ namespace Web.Country.FactBook
             services.AddTransient<ICurrencyRepository, CurrencyRepository>();
             services.AddTransient<ILanguageRepository, LanguageRepository>();
             services.AddTransient<IFeatureRepository, FeatureRepository>();
+            services.AddTransient<IRecentActivityRepository, RecentActivityRepository>();
             services.AddTransient<IRoleFeatureMappingRepository, RoleFeatureMappingRepository>();
             services.AddTransient<ICountryLanguageMappingRepository, CountryLanguageMappingRepository>();
             services.AddTransient<ICountryCurrencyMappingRepository, CountryCurrencyMappingRepository>();
             services.AddTransient<IApiCountryAll, ApiCountryAll>();
             services.AddTransient<IPasswordHasher<string>, PasswordHasher<string>>();
+            services.AddTransient<IActivityHelper, ActivityHelper>();
             services.AddMvc();
         }
 

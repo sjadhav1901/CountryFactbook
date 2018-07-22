@@ -3,63 +3,66 @@
     ViewData["Title"] = "CountryListing";
     Layout = "~/Views/Shared/_AppLayout.cshtml";
 }
+@section scripts {
+    <script src="~/scripts/dashboard.js"></script>
+}
 <div class="jumbotron text-center" style="padding: 6px;background: linear-gradient(180deg,#f2f2f2 0,#fff);border-bottom: 2px solid lightgray;">
     <h2>Country Listing</h2>
-    </div>
-    <table id="example" class="table table-bordered" style="font-size:13px;width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Alpha Two Code</th>
-                <th>Alpha Three Code</th>
-                <th>Capital</th>
-                <th>Languages</th>
-                <th>Currency</th>
-                <th>Flag</th>
-                <th>Time Zone</th>
-            </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Alpha Two Code</th>
-                <th>Alpha Three Code</th>
-                <th>Capital</th>
-                <th>Languages</th>
-                <th>Currency</th>
-                <th>Flag</th>
-                <th>Time Zone</th>
-            </tr>
-        </tfoot>
-    </table>
-    <br /><br />
-    @section styles {
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
-        <style>
-            .table th {
-                font-weight: 500;
-                height: 40px;
-            }
+</div>
+<table id="example" class="table table-bordered" style="font-size:13px;width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Alpha Two Code</th>
+            <th>Alpha Three Code</th>
+            <th>Capital</th>
+            <th>Languages</th>
+            <th>Currency</th>
+            <th>Flag</th>
+            <th>Time Zone</th>
+        </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Alpha Two Code</th>
+            <th>Alpha Three Code</th>
+            <th>Capital</th>
+            <th>Languages</th>
+            <th>Currency</th>
+            <th>Flag</th>
+            <th>Time Zone</th>
+        </tr>
+    </tfoot>
+</table>
+<br /><br />
+@section styles {
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+    <style>
+        .table th {
+            font-weight: 500;
+            height: 40px;
+        }
 
-            .table td, .table th {
-                padding: 8px 11px;
-            }
+        .table td, .table th {
+            padding: 8px 11px;
+        }
 
-            .table tr th {
-                background: linear-gradient(180deg,#f2f2f2 0,#fff);
-                color: #337ab7;
-            }
+        .table tr th {
+            background: linear-gradient(180deg,#f2f2f2 0,#fff);
+            color: #337ab7;
+        }
 
-            table.dataTable {
-                border-collapse: collapse !important;
-            }
-        </style>
-    }
-    @section scripts {
-        <script src="~/scripts/cms/country-manager.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    }
+        table.dataTable {
+            border-collapse: collapse !important;
+        }
+    </style>
+}
+@section scripts {
+    <script src="~/scripts/cms/country-manager.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+}
 

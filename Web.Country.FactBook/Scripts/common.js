@@ -8,9 +8,11 @@
         dataType: "json",
         async: false,
         failure: function (data) {
+            hideLoader();
             alert(data.responseText);
         }, //End of AJAX failure function  
         error: function (data) {
+            hideLoader();
             alert(data.responseText);
         }, //End of AJAX error function  
         beforeSend: function () {
