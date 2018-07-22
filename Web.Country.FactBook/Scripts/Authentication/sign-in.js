@@ -41,7 +41,7 @@ $("#btn-sign-in").click(function () {
     var result = AjaxCall("/api/authenticate/" + rememberme, JSON.stringify(data), "POST");
     if (result != null) {
         localStorage.setItem('user', JSON.stringify(result));
-        window.location.href = "/dashbord";
+        window.location.href = "/dashboard";
     }
     else {
         $("#btn-sign-in").button('reset');

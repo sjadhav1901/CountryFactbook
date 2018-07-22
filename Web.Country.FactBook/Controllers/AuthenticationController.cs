@@ -7,6 +7,7 @@ using Db.Core.Utilites;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Web.Country.FactBook.Helpers;
 using Web.Country.FactBook.Repositories;
 
 namespace Web.Country.FactBook.Controllers
@@ -15,10 +16,12 @@ namespace Web.Country.FactBook.Controllers
     {
         private IUserRepository _userRepository;
         private IPasswordHasher<string> _passwordHasher;
-        public AuthenticationController(IUserRepository userRepository, IPasswordHasher<string> passwordHasher)
+        private IActivityHelper _activityHelper;
+        public AuthenticationController(IUserRepository userRepository, IPasswordHasher<string> passwordHasher, IActivityHelper activityHelper)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
+            _activityHelper = activityHelper;
         }
         public IActionResult SignIn()
         {
@@ -56,6 +59,7 @@ namespace Web.Country.FactBook.Controllers
                         user.Password = model.Password;
                         Set(user);
                     }
+                    _activityHelper.SaveActivity("Sign In", "You have signed into your account on " + DateTime.UtcNow.ToString() +" (GMT)", user.AltId);
                     return user;
                 }
             }
@@ -142,6 +146,7 @@ namespace Web.Country.FactBook.Controllers
                     user.UpdatedUtc = DateTime.UtcNow;
                     user.UpdatedBy = model.AltId;
                     var loggedUserByEmail = _userRepository.Save(user);
+                    _activityHelper.SaveActivity("Reset Password", "You have successfully reseted your password on " + DateTime.UtcNow.ToString() + " (GMT)", user.AltId);
                     return AutoMapper.Mapper.Map<User>(user);
                 }
             }
@@ -174,6 +179,7 @@ namespace Web.Country.FactBook.Controllers
                         CreatedBy = guid
                     });
                 }
+                _activityHelper.SaveActivity("Sign up", "You have completed registartion with an email id " + model.Email + " on " + DateTime.UtcNow.ToString() + " (GMT)", user.AltId);
                 return AutoMapper.Mapper.Map<User>(user);
             }
             catch (Exception ex)

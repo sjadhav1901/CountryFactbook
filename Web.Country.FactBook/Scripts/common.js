@@ -8,16 +8,32 @@
         dataType: "json",
         async: false,
         failure: function (data) {
+            hideLoader();
             alert(data.responseText);
         }, //End of AJAX failure function  
         error: function (data) {
+            hideLoader();
             alert(data.responseText);
         }, //End of AJAX error function  
+        beforeSend: function () {
+            showLoader();
+        },
         success: function (data) {
-            ajaxResult = data   ;
+            hideLoader();
+            ajaxResult = data;
         }
     });
     return ajaxResult;
+}
+
+function showLoader() {
+    $("#dvLoader").css("display", "");
+}
+
+function hideLoader() {
+    setTimeout(function () {
+        $("#dvLoader").css("display", "none");
+    }, 1000);
 }
 
 function ValidateEmail(email) {

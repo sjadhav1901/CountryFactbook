@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "DashBoard";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+@section styles {
+    <link href="~/contents/css/dashboard.css" rel="stylesheet">
+}
+@section scripts {
+    <script src="~/scripts/dashbaord.js"></script>
+}
+<h2 class="text-center mb-4">DashBoard</h2>
+<div class="row">
+    <div class="col-sm-4 sticky">
+        <div class="box-header mt-3">
+            <h3 class="box-title">
+                User Profile
+            </h3>
+        </div>
+        <div class="box mb-3 box-p" id="div-user-profile">
+            
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="tab mb-3 border-gray-dark">
+            <nav class="tab-body" aria-label="Navigate your dashboard">
+                <a href="/" class="tab-item selected" aria-current="page">Browse activity</a>
+            </nav>
+        </div>
+        <h4 class="mt-3 text-normal">Recent activity</h4>
+        <div id="div-activity">
+        </div>
+
+    </div>
+</div>
