@@ -43,7 +43,7 @@ $("#btn-reset-pwd").click(function () {
     $btn.button('loading');
     var result = AjaxCall("/api/authenticate/resetpassword", JSON.stringify(data), "POST");
     if (result != null) {
-        $("#alert-error").html("Your password is reseted successfully, please click here to <a href='/authentication'>login</a>.");
+        $("#alert-error").html("Your password is reseted successfully, please click here to <a href='/authentication'>Sign in</a>.");
         $("#alert-error").show();
         return false;
     }
