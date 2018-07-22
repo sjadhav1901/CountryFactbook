@@ -6,12 +6,8 @@ namespace Contracts.Enums
 {
     public enum Role
     {
-        None=0,
-        Admin,
-        Manager,
-        Developer,
-        Tester,
-        Client,
+        Admin=1,
+        Editor,
         User
     }
 }

@@ -30,6 +30,11 @@ namespace Web.Country.FactBook.Controllers
             return View();
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         public IActionResult ResetPassword()
         {
             return View();
@@ -112,7 +117,7 @@ namespace Web.Country.FactBook.Controllers
             try
             {
                 Contracts.DataModels.User user = AutoMapper.Mapper.Map<Contracts.DataModels.User>(_userRepository.GetByAltId(altId));
-                if(user !=null)
+                if (user != null)
                 {
                     return AutoMapper.Mapper.Map<User>(user);
                 }
@@ -139,6 +144,37 @@ namespace Web.Country.FactBook.Controllers
                     var loggedUserByEmail = _userRepository.Save(user);
                     return AutoMapper.Mapper.Map<User>(user);
                 }
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
+        [HttpPost]
+        [Route("api/register")]
+        public User Register([FromBody] User model)
+        {
+            try
+            {
+                var user = _userRepository.GetByEmail(model.Email);
+                if (user == null)
+                {
+                    var passwordHash = _passwordHasher.HashPassword(model.Email, model.Password);
+                    Guid guid = Guid.NewGuid();
+                    user = _userRepository.Save(new Contracts.DataModels.User
+                    {
+                        AltId = guid,
+                        RoleId = Contracts.Enums.Role.User,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Email = model.Email,
+                        Password = passwordHash,
+                        IsEnabled = true,
+                        CreatedUtc = DateTime.UtcNow,
+                        CreatedBy = guid
+                    });
+                }
+                return AutoMapper.Mapper.Map<User>(user);
             }
             catch (Exception ex)
             {

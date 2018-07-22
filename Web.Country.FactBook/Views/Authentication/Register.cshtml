@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Authentication.cshtml";
+}
+@section scripts {
+    <script src="~/scripts/Authentication/register.js"></script>
+}
+<form class="form-signin">
+    <div class="text-center mb-2">
+        <h1 class="h3 mb-3 font-weight-normform-signinal">Country FactBook</h1>
+    </div>
+    <div id="auth-sign">
+        <div class="form-signin-body">
+            <p class="text-center"><b>Please Sign up</b></p>
+            <p class="text-center" style="font-size:12px;">Please fill out below details to continue sign up.</p>
+            <div class="form-label-group">
+                <input type="text" id="input-first-name" class="form-control" placeholder="First name" required />
+                <label for="input-first-name">First name</label>
+            </div>
+            <div class="form-label-group">
+                <input type="text" id="input-last-name" class="form-control" placeholder="Last name" required />
+                <label for="input-last-name">Last name</label>
+            </div>
+            <div class="form-label-group">
+                <input type="text" id="input-email" class="form-control" placeholder="Email address" required />
+                <label for="input-email">Email address</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" id="input-password" class="form-control" placeholder="Password" required />
+                <label for="input-password">Password</label>
+            </div>
+            <div class="alert alert-success" role="alert" id="alert-error" style="display:none;">
+            </div>
+            <button class="btn btn-lg btn-success btn-block" id="btn-sign-up" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sign up..." type="submit">Sign up</button>
+        </div>
+        <p class="create-account-body mt-3">
+            Already have an account?
+            <a href="/authentication">Sign In</a>.
+        </p>
+    </div>
+</form>
+

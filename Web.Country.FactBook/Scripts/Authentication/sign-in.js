@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    localStorage.removeItem('user');
     GetRememberedCrdentails();
 });
 
@@ -13,7 +14,12 @@ function GetRememberedCrdentails() {
 
 $("#btn-sign-in").click(function () {
     if ($("#input-email").val() == "") {
-        $("#alert-error").html("Please enter username or email address");
+        $("#alert-error").html("Please enter email address");
+        $("#alert-error").show();
+        return false;
+    }
+    if (!ValidateEmail($("#input-email").val())) {
+        $("#alert-error").html("Please enter valid email address");
         $("#alert-error").show();
         return false;
     }
