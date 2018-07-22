@@ -16,6 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ApiIntegrations\ApiCountryAll.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="ApiIntegrations\HttpHelpers\HttpWebRequestHelpers.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="ApiIntegrations\HttpHelpers\Mapper.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="ApiIntegrations\HttpHelpers\Urls.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="Controllers\AuthenticationController.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -26,6 +38,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Profiles\AutoMapperProfile.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Repositories\FeatureRepository.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Repositories\RoleFeatureMappingRepository.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Repositories\CountryCurrencyMappingRepository.cs">
@@ -46,6 +64,12 @@
     <Compile Update="Repositories\UserRepository.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Update="ViewModels\CountryCMSResponseViewModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="ViewModels\MenuResponseViewModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -64,6 +88,9 @@
     <Content Update="Views\Authentication\SignIn.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="Views\CMS\CountryListing.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Views\CMS\SyncCountries.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -80,6 +107,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Contents\css\loader.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Contents\css\sync.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

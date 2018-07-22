@@ -1,5 +1,4 @@
 ﻿
-
 $("#btn-sync").click(function () {
     if (localStorage.getItem('user') != null) {
         var user = JSON.parse(localStorage.getItem('user'));
@@ -18,4 +17,10 @@ $("#btn-sync").click(function () {
     else {
         window.location.href = "/";
     }
+    return false;
 });
+
+function RediectToListing()
+{
+    window.location.href = "/cms/countrylisiting";
+}

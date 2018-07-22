@@ -8,16 +8,24 @@
     <link rel="icon" href="~/factbook-conutry.png">
     <title>@ViewBag.Title</title>
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css" rel="stylesheet">
     <link href="~/contents/css/authform.css" rel="stylesheet">
+    <link href="~/contents/css/loader.css" rel="stylesheet">
     <script src="~/scripts/common.js"></script>
 </head>
 <body>
     @RenderBody()
     @RenderSection("scripts", false)
+    <div class="site-loader" id="dvLoader" style="display:none;">
+        <div class="loader-content">
+            <i class="fa fa-circle-o-notch fa-spin" style="font-size:35px;"></i>
+            <p style="font-size: 13px">Please wait... </p>
+        </div>
+    </div>
 </body>
 </html>

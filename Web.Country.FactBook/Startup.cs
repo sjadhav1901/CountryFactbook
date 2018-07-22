@@ -36,6 +36,8 @@ namespace Web.Country.FactBook
             services.AddTransient<ICountryRepository, CountryRepository>();
             services.AddTransient<ICurrencyRepository, CurrencyRepository>();
             services.AddTransient<ILanguageRepository, LanguageRepository>();
+            services.AddTransient<IFeatureRepository, FeatureRepository>();
+            services.AddTransient<IRoleFeatureMappingRepository, RoleFeatureMappingRepository>();
             services.AddTransient<ICountryLanguageMappingRepository, CountryLanguageMappingRepository>();
             services.AddTransient<ICountryCurrencyMappingRepository, CountryCurrencyMappingRepository>();
             services.AddTransient<IApiCountryAll, ApiCountryAll>();
@@ -56,6 +58,12 @@ namespace Web.Country.FactBook
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Authentication}/{action=SignIn}/{id?}");
+            });
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "dashBoard",
+                    template: "{controller=DashBoard}/{action=DashBoard}/{id?}");
             });
             app.UseStaticFiles(new StaticFileOptions
             {
