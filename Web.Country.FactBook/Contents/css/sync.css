@@ -1,0 +1,17 @@
+.sync-loader-page p {
+    font-size: 25px;
+}
+
+    .sync-loader-page p small {
+        font-size: 18px;
+        color: #3c3c3c;
+    }
+
+.sync-loader-page {
+    text-align: center;
+}
+
+.jumbotron {
+    padding: 20px;
+    margin-top: 10%;
+}

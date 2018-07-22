@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "SyncCountries";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+@section styles {
+    <link href="~/contents/css/sync.css" rel="stylesheet">
+}
+@section scripts {
+    <script src="~/scripts/CMS/sync-countries.js"></script>
+}
+    <div class="jumbotron">
+        <div id="div-sync">
+            <div class="sync-loader-page">
+                <p>
+                    Please click on the below button to start synchronization. Please be patient while your country database is being synchronized. <br />
+                    <small>Do not "close the window" or press "refresh" or "browser back/forward button"</small>
+                </p>
+                <img src="https://i.pinimg.com/originals/fe/24/ae/fe24ae50007b9d45aefeb5594c020efb.gif" alt="" style="width: 80px;"><br>
+                <button class="btn btn-md btn-primary" id="btn-sync" type="submit">Start Synchronization...</button>
+            </div>
+        </div>
+        <div id="div-sync-alert" style="display:none;">
+            <div class="sync-loader-page">
+                <p id="p-alert">
+                </p>
+                <button class="btn btn-md btn-primary" id="btn-sync" type="submit">View Countries</button>
+            </div>
+        </div>
+    </div>
