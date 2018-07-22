@@ -1,9 +1,0 @@
-C:\Country.FactBook\Country.Contracts\obj\Debug\netcoreapp2.1\Country.Contracts.csprojAssemblyReference.cache
-C:\Country.FactBook\Country.Contracts\obj\Debug\netcoreapp2.1\Country.Contracts.csproj.CoreCompileInputs.cache
-C:\Country.FactBook\Country.Contracts\obj\Debug\netcoreapp2.1\Country.Contracts.AssemblyInfoInputs.cache
-C:\Country.FactBook\Country.Contracts\obj\Debug\netcoreapp2.1\Country.Contracts.AssemblyInfo.cs
-C:\Country.FactBook\Country.Contracts\bin\Debug\netcoreapp2.1\Country.Contracts.deps.json
-C:\Country.FactBook\Country.Contracts\bin\Debug\netcoreapp2.1\Country.Contracts.dll
-C:\Country.FactBook\Country.Contracts\bin\Debug\netcoreapp2.1\Country.Contracts.pdb
-C:\Country.FactBook\Country.Contracts\obj\Debug\netcoreapp2.1\Country.Contracts.dll
-C:\Country.FactBook\Country.Contracts\obj\Debug\netcoreapp2.1\Country.Contracts.pdb
