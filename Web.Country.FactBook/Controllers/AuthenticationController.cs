@@ -25,19 +25,28 @@ namespace Web.Country.FactBook.Controllers
             return View();
         }
 
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
         [HttpPost]
         [Route("api/authenticate/{rememberme}")]
         public User ValidateSignIn([FromBody] User model, int rememberme)
         {
             try
             {
-                var passwordHash = _passwordHasher.HashPassword(model.Email, model.Password);
                 var loggedUserByEmail = _userRepository.GetByEmail(model.Email);
                 User user = AutoMapper.Mapper.Map<User>(loggedUserByEmail);
                 if ((_passwordHasher.VerifyHashedPassword(model.Email, user.Password, model.Password) ==
                         PasswordVerificationResult.Success))
                 {
-                    if (rememberme==1)
+                    if (rememberme == 1)
                     {
                         user.Password = model.Password;
                         Set(user);
@@ -48,7 +57,7 @@ namespace Web.Country.FactBook.Controllers
             catch (Exception ex)
             {
             }
-            return new User { Id = 0 };
+            return null;
         }
 
         [HttpGet]
@@ -63,23 +72,78 @@ namespace Web.Country.FactBook.Controllers
                     return AutoMapper.Mapper.Map<User>(Newtonsoft.Json.JsonConvert.DeserializeObject(cookies));
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Response.Cookies.Delete("Credentials");
             }
             return null;
         }
 
-        public void Set(User value, int? expireTime = 10)
+        public void Set(User value, int? expireTime = 24)
         {
             CookieOptions option = new CookieOptions();
             if (expireTime.HasValue)
-                option.Expires = DateTime.Now.AddMinutes(expireTime.Value);
+                option.Expires = DateTime.Now.AddHours(expireTime.Value);
             else
-                option.Expires = DateTime.Now.AddMilliseconds(10);
+                option.Expires = DateTime.Now.AddHours(2);
             var jsonCredentails = Newtonsoft.Json.JsonConvert.SerializeObject(value);
             Response.Cookies.Append("Credentials", jsonCredentails, option);
         }
 
+        [HttpGet]
+        [Route("api/authenticate/forgot/{email}")]
+        public User ForgotPassword(string email)
+        {
+            try
+            {
+                var user = _userRepository.GetByEmail(email);
+                return AutoMapper.Mapper.Map<User>(user);
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
+        [HttpGet]
+        [Route("api/validate/reseruser/{altId}")]
+        public User ValidateResetUserDetails(Guid altId)
+        {
+            try
+            {
+                Contracts.DataModels.User user = AutoMapper.Mapper.Map<Contracts.DataModels.User>(_userRepository.GetByAltId(altId));
+                if(user !=null)
+                {
+                    return AutoMapper.Mapper.Map<User>(user);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
+        [HttpPost]
+        [Route("api/authenticate/resetpassword")]
+        public User ResetPassword([FromBody] User model)
+        {
+            try
+            {
+                var passwordHash = _passwordHasher.HashPassword(model.Email, model.Password);
+                Contracts.DataModels.User user = AutoMapper.Mapper.Map<Contracts.DataModels.User>(_userRepository.GetByAltId(model.AltId));
+                if (user != null)
+                {
+                    user.Password = passwordHash;
+                    user.UpdatedUtc = DateTime.UtcNow;
+                    user.UpdatedBy = model.AltId;
+                    var loggedUserByEmail = _userRepository.Save(user);
+                    return AutoMapper.Mapper.Map<User>(user);
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
     }
 }

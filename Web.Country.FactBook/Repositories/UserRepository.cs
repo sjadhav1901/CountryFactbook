@@ -11,6 +11,7 @@ namespace Web.Country.FactBook.Repositories
     public interface IUserRepository : IOrmRepository<User>
     {
         User GetByEmail(string email);
+        User GetByAltId(Guid altId);
     }
 
     public class UserRepository : OrmRepository<User>, IUserRepository
@@ -19,16 +20,19 @@ namespace Web.Country.FactBook.Repositories
         {
         }
 
-        public User Get(int id)
-        {
-            return Get(new User { Id = id });
-        }
-
         public User GetByEmail(string email)
         {
             return GetAll(s => s.Where($"{nameof(User.Email):C} = @Email AND IsEnabled=1")
                 .WithParameters(new { Email = email })
             ).FirstOrDefault();
         }
+
+        public User GetByAltId(Guid altId)
+        {
+            return GetAll(s => s.Where($"{nameof(User.AltId):C} = @AltId AND IsEnabled=1")
+                .WithParameters(new { AltId = altId })
+            ).FirstOrDefault();
+        }
+
     }
 }

@@ -11,7 +11,7 @@ function GetRememberedCrdentails() {
     }
 }
 
-function ValidateSingInUser() {
+$("#btn-sign-in").click(function () {
     if ($("#input-email").val() == "") {
         $("#alert-error").html("Please enter username or email address");
         $("#alert-error").show();
@@ -31,16 +31,17 @@ function ValidateSingInUser() {
     if ($("#chk-rememberme").is(':checked')) {
         rememberme = 1;
     }
-    $("#btn-sign-in").attr("disabled", "disabled");
+    $("#btn-sign-in").button('loading');
     var result = AjaxCall("/api/authenticate/" + rememberme, JSON.stringify(data), "POST");
-    if (result.id > 0) {
+    if (result != null) {
+        localStorage.setItem('user', JSON.stringify(result));
         window.location.href = "/dashbord";
     }
     else {
-        $("#btn-sign-in").removeAttr("disabled");
+        $("#btn-sign-in").button('reset');
         $("#alert-error").html("Invalid email address or password");
         $("#alert-error").show();
         return false;
     }
     return false;
-}
+});
