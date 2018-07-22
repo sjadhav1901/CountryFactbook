@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Web.Country.FactBook.ApiIntegrations;
 using Web.Country.FactBook.Repositories;
 
 namespace Web.Country.FactBook
@@ -32,6 +33,12 @@ namespace Web.Country.FactBook
         {
             services.AddTransient<IDataSettings, DataSettings>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
+            services.AddTransient<ICurrencyRepository, CurrencyRepository>();
+            services.AddTransient<ILanguageRepository, LanguageRepository>();
+            services.AddTransient<ICountryLanguageMappingRepository, CountryLanguageMappingRepository>();
+            services.AddTransient<ICountryCurrencyMappingRepository, CountryCurrencyMappingRepository>();
+            services.AddTransient<IApiCountryAll, ApiCountryAll>();
             services.AddTransient<IPasswordHasher<string>, PasswordHasher<string>>();
             services.AddMvc();
         }

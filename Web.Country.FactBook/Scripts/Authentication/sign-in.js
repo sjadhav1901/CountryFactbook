@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    localStorage.removeItem('user');
+    //localStorage.removeItem('user');
     GetRememberedCrdentails();
 });
 
