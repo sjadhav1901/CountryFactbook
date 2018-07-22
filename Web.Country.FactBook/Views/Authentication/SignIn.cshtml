@@ -3,39 +3,40 @@
     ViewData["Title"] = "Sign In";
     Layout = "~/Views/Shared/_Authentication.cshtml";
 }
-
-    <form class="form-signin">
-        <div class="text-center mb-2">
-            <h1 class="h3 mb-3 font-weight-normform-signinal">Country FactBook</h1>
-        </div>
-        <div id="auth-sign">
-            <div class="form-signin-body">
-                <p>Please Sign In</p>
-                <div class="form-label-group">
-                    <input type="text" id="input-email" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="input-email">Email address</label>
-                </div>
-
-                <div class="form-label-group">
-                    <input type="password" id="input-password" class="form-control" placeholder="Password" required>
-                    <label for="input-password">Password</label>
-                </div>
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" id="chk-rememberme" value="remember-me"> Remember me
-                    </label>
-                    <a class="flaot-right" href="/authentication/resetpassword">Forgot password?</a>
-                </div>
-                <div class="alert alert-success" role="alert" id="alert-error" style="display:none;">
-                    
-                </div>
-                <button class="btn btn-lg btn-success btn-block" id="btn-sign-in" type="submit" onclick="return ValidateSingInUser();">Sign in</button>
+@section scripts {
+    <script src="~/scripts/Authentication/sign-in.js"></script>
+}
+<form class="form-signin">
+    <div class="text-center mb-2">
+        <h1 class="h3 mb-3 font-weight-normform-signinal">Country FactBook</h1>
+    </div>
+    <div id="auth-sign">
+        <div class="form-signin-body">
+            <p>Please Sign In</p>
+            <div class="form-label-group">
+                <input type="text" id="input-email" class="form-control" placeholder="Email address" required autofocus>
+                <label for="input-email">Email address</label>
             </div>
-            <p class="create-account-body mt-3">
-                New to Country FactBook?
-                <a href="/authentication/register">Create an account</a>.
-            </p>
+
+            <div class="form-label-group">
+                <input type="password" id="input-password" class="form-control" placeholder="Password" required>
+                <label for="input-password">Password</label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" id="chk-rememberme" value="remember-me"> Remember me
+                </label>
+                <a class="flaot-right" href="/authentication/forgotpassword">Forgot password?</a>
+            </div>
+            <div class="alert alert-success" role="alert" id="alert-error" style="display:none;">
+            </div>
+            <button class="btn btn-lg btn-success btn-block" id="btn-sign-in" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Reset Password..." type="submit">Sign in</button>
         </div>
-        
-    </form>
+        <p class="create-account-body mt-3">
+            New to Country FactBook?
+            <a href="/authentication/register">Create an account</a>.
+        </p>
+    </div>
+
+</form>

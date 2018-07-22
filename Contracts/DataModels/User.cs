@@ -1,13 +1,15 @@
 ﻿using Contracts.Enums;
+using Contracts.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Contracts.DataModels
 {
-    public class User
+    public class User : IId<int>
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
+        public Guid AltId { get; set; }
         public Role RoleId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

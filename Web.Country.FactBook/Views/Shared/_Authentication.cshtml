@@ -15,9 +15,9 @@
     <link href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css" rel="stylesheet">
     <link href="~/contents/css/authform.css" rel="stylesheet">
     <script src="~/scripts/common.js"></script>
-    <script src="~/scripts/Authentication/sign-in.js"></script>
 </head>
 <body>
-        @RenderBody()
+    @RenderBody()
+    @RenderSection("scripts", false)
 </body>
 </html>
