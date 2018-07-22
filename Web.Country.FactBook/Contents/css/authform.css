@@ -43,3 +43,10 @@ a {
     font-size: 16px !important;
     padding: 6px !important;
 }
+.alert {
+    text-align: center !important;
+    padding: 5px !important;
+}
+.alert-success {
+    background-color: transparent !important;
+}
