@@ -40,8 +40,9 @@ namespace Web.Country.FactBook
             services.AddTransient<IFeatureRepository, FeatureRepository>();
             services.AddTransient<IRecentActivityRepository, RecentActivityRepository>();
             services.AddTransient<IRoleFeatureMappingRepository, RoleFeatureMappingRepository>();
-            services.AddTransient<ICountryLanguageMappingRepository, CountryLanguageMappingRepository>();
             services.AddTransient<ICountryCurrencyMappingRepository, CountryCurrencyMappingRepository>();
+            services.AddTransient<ICountryLanguageMappingRepository, CountryLanguageMappingRepository>();
+            services.AddTransient<IFavouriteRepository, FavouriteRepository>();
             services.AddTransient<IApiCountryAll, ApiCountryAll>();
             services.AddTransient<IPasswordHasher<string>, PasswordHasher<string>>();
             services.AddTransient<IActivityHelper, ActivityHelper>();

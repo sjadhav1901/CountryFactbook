@@ -12,6 +12,7 @@ namespace Web.Country.FactBook.Repositories
     {
         Contracts.DataModels.Country GetByName(string name);
         Contracts.DataModels.Country GetByAltId(Guid altId);
+        IEnumerable<Contracts.DataModels.Country> GetByAltIds(IEnumerable<Guid> altId);
     }
 
     public class CountryRepository : OrmRepository<Contracts.DataModels.Country>, ICountryRepository
@@ -32,6 +33,13 @@ namespace Web.Country.FactBook.Repositories
             return GetAll(s => s.Where($"{nameof(Contracts.DataModels.Country.AltId):C} = @AltId AND IsEnabled=1")
                 .WithParameters(new { AltId = altId })
             ).FirstOrDefault();
+        }
+
+        public IEnumerable<Contracts.DataModels.Country> GetByAltIds(IEnumerable<Guid> altId)
+        {
+            return GetAll(s => s.Where($"{nameof(Contracts.DataModels.Country.AltId):C} IN @AltId AND IsEnabled=1")
+                .WithParameters(new { AltId = altId })
+            );
         }
     }
 }

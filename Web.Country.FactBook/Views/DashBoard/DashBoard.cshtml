@@ -17,19 +17,25 @@
                 User Profile
             </h3>
         </div>
-        <div class="box mb-3 box-p" id="div-user-profile">
-            
+        <div class="box mb-3 box-p" id="div-user-profile">            
         </div>
     </div>
     <div class="col-sm-8">
         <div class="tab mb-3 border-gray-dark">
             <nav class="tab-body" aria-label="Navigate your dashboard">
-                <a href="/" class="tab-item selected" aria-current="page">Browse activity</a>
+                <a href="javascript:void(0);" id="anc-activity" onclick="ShowHide('div-recent', 'div-favourite'); toggleClass('anc-activity','anc-favourite');" class="tab-item selected" aria-current="page">Browse activity</a>
+                <a href="javascript:void(0);" id="anc-favourite" onclick="ShowHide('div-favourite', 'div-recent');toggleClass('anc-favourite','anc-activity');" class="tab-item" aria-current="page">Browse favourites</a>
             </nav>
         </div>
-        <h4 class="mt-3 text-normal">Recent activity</h4>
-        <div id="div-activity">
+        <div id="div-recent"  style="display:none;">
+            <h4 class="mt-3 text-normal">Recent activity</h4>
+            <div id="div-activity">
+            </div>
         </div>
-
+        <div id="div-favourite" style="display:none;">
+            <h4 class="mt-3 text-normal">Favourite List</h4>
+            <div id="div-favour">
+            </div>
+        </div>
     </div>
 </div>

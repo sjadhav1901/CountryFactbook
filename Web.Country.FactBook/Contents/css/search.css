@@ -1,0 +1,24 @@
+.main {
+    width: 50%;
+    margin: 10px auto;
+}
+
+/* Bootstrap 3 text input with search icon */
+
+.has-search .form-control-feedback {
+    right: initial;
+    left: 0;
+    color: #ccc;
+}
+
+.has-search .form-control {
+    padding-right: 12px;
+    padding-left: 34px;
+}
+.ui-autocomplete {
+    margin-left: 3px;
+    max-height: 350px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size:13px;
+}
