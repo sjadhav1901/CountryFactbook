@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "CountryListing";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section styles {
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/contents/css/search.css" rel="stylesheet">
+    <link href="~/contents/css/dashboard.css" rel="stylesheet">
+}
+@section scripts {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/scripts/search-country.js"></script>
+}
+<div class="row border-gray-dark">
+    <input type="hidden" id="hdnCountryId" value="" />
+    <div class="main">
+        <h2 class="text-center mb-3">Browse Country</h2>
+        <!-- Actual search box -->
+        <div class="form-group has-feedback has-search">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            <input type="text" id="tags" class="form-control" placeholder="Search">
+        </div>
+    </div>
+</div>
+<div class="row mb-4" id="div-details" style="display:none;">
+    <div class="col-sm-12">
+        <div class="tab mb-3 border-gray-dark">
+            <nav class="tab-body" aria-label="Navigate your dashboard">
+                <a href="javascript:void(0);" class="tab-item selected" aria-current="page">Browse Country Details</a>
+                <a id="btn-favorite" href="javascript:void(0);" style="color:green;">
+                    <span class="text-right" style="float: right;font-size: 11px;"><i class="fa fa-heart" aria-hidden="true"></i>Add to Favourites</span>
+                </a>
+            </nav>
+        </div>
+        <div>
+            <h4 class="mt-3 text-normal">Basic Information about Country</h4>
+            <div class="box mb-3" id="div-country">
+
+            </div>
+            <h4 class="mt-3 text-normal">Languages Details</h4>
+            <div class="box mb-3">
+                <div class="col-sm-12">
+                    <i class="icon-activity"></i> Languages Spoken
+                </div>
+                <div class="col-sm-12 f6 text-gray" id="dvLanguages">
+                </div>
+            </div>
+            <h4 class="mt-3 text-normal">Currency Details</h4>
+            <div class="box mb-3">
+                <div class="col-sm-12">
+                    <i class="icon-activity"></i> Currencies Used
+                </div>
+                <div class="col-sm-12 f6 text-gray" id="dvCurrencies">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

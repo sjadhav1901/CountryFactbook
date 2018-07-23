@@ -4,7 +4,7 @@ $(document).ready(function () {
         $("#dvLoader").show();
         var user = JSON.parse(localStorage.getItem('user'));
         $.ajax({
-            url: "http://countryfactbook.azurewebsites.net/api/authednavmenu/" + user.altId,
+            url: "https://localhost:44349/api/authednavmenu/" + user.altId,
             type: "GET",
             cache: false,
             success: function (response, status, xhr) {
